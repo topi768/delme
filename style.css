@@ -1,17 +1,24 @@
+/* Сброс стилей */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+/* CSS-переменные */
+:root {
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'Open Sans', sans-serif;
+}
+
 html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-}
-body {
-    font-family: Arial, sans-serif;
+    font-family: var(--font-primary);
 }
 
+/* Заголовок */
 .header {
     background-color: #333;
     color: #fff;
@@ -21,27 +28,30 @@ body {
 
 .header__title {
     font-size: 2rem;
+    font-family: var(--font-secondary); /*  Open Sans */
 }
 
+/* Основной контент */
 .page {
     display: flex;
     flex-direction: column;
     min-height: 90vh;
 }
+.page__content-image {
+    width: 50%;
 
-
+}
 .page__main {
     display: flex;
     flex: 1;
-    /* padding: 20px; */
     justify-content: space-between;
 }
-
 
 .page__sidebar {
     width: 20%;
     padding: 20px;
     background-color: #f4f4f4;
+    font-family: var(--font-secondary); /*  Open Sans */
 }
 
 .page__sidebar--left {
@@ -67,6 +77,7 @@ body {
     font-size: 1rem;
 }
 
+/* Подвал */
 .footer {
     background-color: #333;
     color: #fff;
@@ -80,6 +91,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: var(--font-secondary);
 }
 
 #button {
@@ -88,4 +100,5 @@ body {
     color: #fff;
     border: none;
     border-radius: 10%;
+    font-family: var(--font-primary); /*  Montserrat */
 }
