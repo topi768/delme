@@ -1,0 +1,13 @@
+@mixin btn-styles($bg-color, $text-color) {
+    background-color: $bg-color;
+    color: $text-color;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
