@@ -9,6 +9,7 @@
 
 <style lang="scss">
 button {
+    cursor: pointer;
     padding: 16px 40px;
 
     border: none;
@@ -26,9 +27,12 @@ letter-spacing: 0.15px;
 border-radius: 10px;
 color: #FFFFFF;
 white-space: nowrap;
+transition: 0.2s;
 
 
 
-
+}
+button:hover {
+    opacity: 0.9;
 }
 </style>
