@@ -50,7 +50,7 @@ import Logo from './Logo.vue';
       }
       .phone__link::before {
         content: '';
-        background-image: url('/img/icons/phone.svg');
+        background-image: url('/img/icons/telephone.svg');
         background-repeat: no-repeat;
         width: 16px;
         height: 16px;
