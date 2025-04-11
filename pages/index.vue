@@ -2,10 +2,6 @@
   <!-- <Banner title="Hello, World!" /> -->
 
   <div class="layout">
-    <div class="left-column">
-      <p>Левая колонка</p>
-    </div>
-
     <div class="content">
       <p>Сайт</p>
       <img class="img" src="/img/image.png" alt="" />
@@ -18,16 +14,16 @@
       <p>{{ message }}</p>
       <button @click="toggleMessage">Нажми меня</button>
     </div>
-
-    <div class="right-column">
-      <p>Правая колонка</p>
-    </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-
+useHead({
+  meta: [
+    { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+  ],
+});
 const defaultText = 'Амогус';
 const changedText = 'Абобус';
 
@@ -45,16 +41,6 @@ const toggleMessage = () => {
   display: flex;
   height: 100%;
   gap: 20px;
-}
-
-.left-column,
-.right-column {
-  width: 20%;
-  // height: 300%;
-  background-color: #f4f4f4;
-  padding: 10px;
-  text-align: center;
-  // height: 100%;
 }
 
 .content {
