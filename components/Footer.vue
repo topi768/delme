@@ -2,7 +2,7 @@
   <footer>
     <div class="footer__item">
       <div class="item__logo">
-        <Logo1/>
+        <Logo1 />
         <p>zagdom</p>
       </div>
       <p class="item__minorLinks">© zagdom, 2021</p>
@@ -21,7 +21,7 @@
       <a>г. Владивосток ул. Выселковая 49, стр. 3</a>
       <p class="item__minorLinks">Пользовательское соглашение</p>
     </div>
-    <div class="footer__item footer__button" >
+    <div class="footer__item footer__button">
       <Button>Оставить заявку</Button>
     </div>
 
@@ -49,7 +49,6 @@ footer {
   font-size: 1.2rem;
   text-align: center;
 
-
   .footer__mobileMinorLinks {
     display: none;
     flex-direction: column;
@@ -63,7 +62,7 @@ footer {
       font-weight: 400;
       font-size: 14px;
       line-height: 121%;
-      color: #FFFFFF;
+      color: #ffffff;
       opacity: 0.6;
       transition: 0.2s;
       text-align: left;
@@ -73,7 +72,7 @@ footer {
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $breakpoint-md) {
     flex-direction: column;
 
     .item__minorLinks {
@@ -87,7 +86,6 @@ footer {
       display: flex;
       align-items: center;
       margin-right: auto;
-
     }
   }
 
@@ -107,7 +105,7 @@ footer {
       font-weight: 400;
       font-size: 16px;
       line-height: 120%;
-      color: #FFFFFF;
+      color: #ffffff;
       transition: 0.2s;
     }
 
@@ -138,7 +136,7 @@ footer {
       font-weight: 400;
       font-size: 14px;
       line-height: 121%;
-      color: #FFFFFF;
+      color: #ffffff;
       opacity: 0.6;
       transition: 0.2s;
       text-align: left;
@@ -174,6 +172,5 @@ footer {
       margin-right: 10px;
     }
   }
-
 }
 </style>
