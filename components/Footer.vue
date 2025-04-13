@@ -40,6 +40,7 @@
 
 <style scoped lang="scss">
 footer {
+  margin-top: auto;
   position: relative;
   display: flex;
   justify-content: space-between;
