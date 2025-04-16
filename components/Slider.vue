@@ -84,7 +84,7 @@ function goToSlide(index: number) {
 .sliderWrapper {
   position: relative;
   width: 100%;
-  max-width: 1200px;
+  // max-width: 1200px;
   margin: 0 auto;
   overflow: hidden;
   border-radius: 8px;
