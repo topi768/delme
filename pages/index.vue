@@ -3,20 +3,14 @@
 
   <div class="layout">
     <div class="content">
-      <p>Сайт</p>
-      <UIButtonArrow orientation="r" />
-
-      <img class="img" src="/img/image.png" alt="" />
-
-      <div class="cards-container"></div>
-
-      <p>{{ message }}</p>
+      <Slider />
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
+import Slider from '~/components/Slider.vue';
 </script>
 
 <style scoped lang="scss">
