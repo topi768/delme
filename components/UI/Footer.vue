@@ -19,7 +19,9 @@
       <a href="+7 (900) 900-90-90">+7 (900) 900-90-90</a>
       <a>Info@gmail.com</a>
       <a>г. Владивосток ул. Выселковая 49, стр. 3</a>
-      <p class="item__minorLinks">Пользовательское соглашение</p>
+      <p @click="toggleCat" class="item__minorLinks">
+        Пользовательское соглашение
+      </p>
     </div>
     <div class="footer__item footer__button">
       <UIButtonsMyButton>Оставить заявку</UIButtonsMyButton>
@@ -28,13 +30,64 @@
     <div class="footer__mobileMinorLinks">
       <p>© zagdom, 2021</p>
       <p>Политика конфиденциальности</p>
-      <p>Пользовательское соглашение</p>
+      <p @click="toggleCat">Пользовательское соглашение</p>
     </div>
   </footer>
+
+  <teleport :to="catPortalTarget">
+    <div class="cat-wrapper" v-show="isOpenOiiaCat">
+      <a
+        href="https://www.youtube.com/watch?v=dVHdUakiEo4&list=RDo6wtDPVkKqI&index=3"
+        class="cat-link"
+      >
+        <img class="footer__cat" src="/img/oiia_cat.gif" alt="cat" />
+      </a>
+    </div>
+  </teleport>
+
+  <teleport :to="catPortalTarget">
+    <div class="audio-control" v-if="isOpenOiiaCat">
+      <audio ref="musicAudio" src="/cat.mp3" loop autoplay></audio>
+      <input
+        type="range"
+        min="0"
+        max="1"
+        step="0.01"
+        v-model="volume"
+        @input="updateVolume"
+      />
+    </div>
+  </teleport>
 </template>
 
 <script setup lang="ts">
-// Никакой особой логики здесь не требуется
+import { ref, watch } from 'vue';
+
+const isOpenOiiaCat = ref(false);
+const catPortalTarget = ref('body');
+const volume = ref(0);
+const musicAudio = ref<HTMLAudioElement | null>(null);
+function toggleCat() {
+  isOpenOiiaCat.value = !isOpenOiiaCat.value;
+}
+watch(volume, newVal => {
+  if (musicAudio.value) {
+    musicAudio.value.volume = newVal;
+  }
+});
+
+watch(isOpenOiiaCat, isOpen => {
+  if (musicAudio.value) {
+    musicAudio.value.volume = 0;
+    if (isOpen) {
+      musicAudio.value.play().catch(() => {});
+    } else {
+      musicAudio.value.pause();
+    }
+  }
+});
+
+function updateVolume() {}
 </script>
 
 <style scoped lang="scss">
@@ -66,6 +119,7 @@ footer {
       opacity: 0.6;
       transition: 0.2s;
       text-align: left;
+
       &:hover {
         opacity: 1;
       }
@@ -140,6 +194,7 @@ footer {
       opacity: 0.6;
       transition: 0.2s;
       text-align: left;
+
       &:hover {
         opacity: 1;
       }
@@ -172,5 +227,91 @@ footer {
       margin-right: 10px;
     }
   }
+}
+
+.cat-wrapper {
+  cursor: pointer;
+  position: fixed;
+  z-index: 9999;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00);
+  background-size: 400% 400%;
+  animation:
+    catMove 1.5s infinite alternate ease,
+    psychedelicBG 0.3s infinite ease-in-out;
+}
+
+@keyframes catMove {
+  0% {
+    bottom: 20px;
+    right: 20px;
+  }
+  25% {
+    bottom: 70%;
+    right: 10%;
+  }
+  50% {
+    bottom: 50%;
+    right: 80%;
+  }
+  75% {
+    bottom: 10%;
+    right: 50%;
+  }
+  100% {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+@keyframes psychedelicBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.cat-link {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.footer__cat {
+  width: 100px;
+  height: auto;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+/* Стили для аудио-контрола */
+.audio-control {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px 15px;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.audio-control input[type='range'] {
+  margin-left: 10px;
 }
 </style>
