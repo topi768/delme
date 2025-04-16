@@ -4,32 +4,19 @@
   <div class="layout">
     <div class="content">
       <p>Сайт</p>
+      <UIButtonArrow orientation="r" />
+
       <img class="img" src="/img/image.png" alt="" />
 
-      <div class="cards-container">
-        <Card>И там</Card>
-        <Card>И сям</Card>
-      </div>
+      <div class="cards-container"></div>
 
       <p>{{ message }}</p>
-      <button @click="toggleMessage">Нажми меня</button>
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-
-const defaultText = 'Амогус';
-const changedText = 'Абобус';
-
-const message = ref(defaultText);
-const isChanged = ref(false);
-
-const toggleMessage = () => {
-  isChanged.value = !isChanged.value;
-  message.value = isChanged.value ? changedText : defaultText;
-};
 </script>
 
 <style scoped lang="scss">

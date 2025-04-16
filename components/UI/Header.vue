@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="header__item logo">
-      <Logo />
+      <UILogo />
       <h1>zagdom</h1>
     </div>
 
@@ -20,15 +20,13 @@
     </nav>
     <div class="header__item phone">
       <a class="phone__link" href="+7 (900) 900-90-90">+7 (900) 900-90-90</a>
-      <Button>Оставить заявку</Button>
+      <UIButtonsMyButton>Оставить заявку</UIButtonsMyButton>
     </div>
     <div class="draver"><Draver /></div>
   </header>
 </template>
 
-<script setup lang="ts">
-import Logo from './Logo.vue';
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="scss">
 // $breakpoint-lg: 992px;

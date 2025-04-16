@@ -2,7 +2,7 @@
   <footer>
     <div class="footer__item">
       <div class="item__logo">
-        <Logo1 />
+        <UILogo1 />
         <p>zagdom</p>
       </div>
       <p class="item__minorLinks">© zagdom, 2021</p>
@@ -22,10 +22,9 @@
       <p class="item__minorLinks">Пользовательское соглашение</p>
     </div>
     <div class="footer__item footer__button">
-      <Button>Оставить заявку</Button>
+      <UIButtonsMyButton>Оставить заявку</UIButtonsMyButton>
     </div>
 
-    <!-- Новый контейнер для минорных ссылок, видимый только на мобильном -->
     <div class="footer__mobileMinorLinks">
       <p>© zagdom, 2021</p>
       <p>Политика конфиденциальности</p>

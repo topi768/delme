@@ -1,20 +1,14 @@
 <template>
   <div class="wrapper">
-    <Header />
+    <UIHeader />
     <main class="main-content">
       <NuxtPage />
     </main>
-    <Footer />
+    <UIFooter />
   </div>
 </template>
 
-<script setup lang="ts">
-useHead({
-  meta: [
-    { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
-  ],
-});
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="scss">
 .wrapper {
