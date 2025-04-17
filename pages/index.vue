@@ -5,7 +5,7 @@
     <div class="content">
       <main>
         <Slider />
-        <section class="about">
+        <div class="about">
           <div class="about__text">
             <h3>Каждый проект для нас — важный</h3>
             <p>Мы строительная компания полного цикла.</p>
@@ -24,8 +24,40 @@
             <h4>14 лет</h4>
             <p>мы на рынке загородного строительства</p>
           </div>
-        </section>
+        </div>
       </main>
+      <section class="projects">
+        <h3>Реализованные проекты</h3>
+        <div class="projects__cards">
+          <div class="projects__card">
+            <div class="card__text">
+              <h4>Дом в скандинавском стиле</h4>
+              <p>
+                Одноэтажный дом из газобетона габаритными размерами 10.73 х
+                10.73 м. и жилой площадью 101 кв. м. с вальмовой кровлей
+              </p>
+              <p>Построен по индивидуальному проекту.</p>
+            </div>
+
+            <img src="/img/main/p2.png" alt="" />
+          </div>
+          <div class="projects__card">
+            <div class="card__text">
+              <h4>Дом из газобетона</h4>
+              <p>
+                Одноэтажный дом габаритными размерами 15.2 х 9.7м. Приведенная
+                площадь – 127.7 м.кв.
+              </p>
+              <p>
+                Три спальные комнаты, два сан.узла, большая кухня-гостиная с
+                выходом на террасу.
+              </p>
+            </div>
+
+            <img src="/img/main/p1.png" alt="" />
+          </div>
+        </div>
+      </section>
     </div>
   </div>
 </template>
@@ -86,6 +118,46 @@ import Slider from '~/components/Slider.vue';
   }
 }
 
+.projects {
+  background: #f5f7f3;
+  padding: 20px;
+
+  h3 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 120%;
+    color: #000000;
+  }
+  .projects__cards {
+    display: flex;
+
+    @media screen and (max-width: $breakpoint-xl) {
+      overflow-x: scroll;
+      width: 90vw;
+    }
+    .projects__card {
+      display: flex;
+      align-items: center;
+      // margin: 20px;
+      border-radius: 20px;
+      background: #fff;
+      // padding: 20px 0;
+      .card__text {
+        margin: 0 20px;
+      }
+      img {
+        max-width: 300px;
+        max-height: 300px;
+      }
+    }
+    .projects__card:nth-child(1n) {
+      margin-right: 20px;
+    }
+  }
+}
+
 .layout {
   display: flex;
   height: 100%;
@@ -94,7 +166,7 @@ import Slider from '~/components/Slider.vue';
 
 .content {
   flex: 1;
-  margin: 20px;
+  // margin: 20px;
 }
 
 .img {
