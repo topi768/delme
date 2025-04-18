@@ -8,7 +8,7 @@
     <nav class="header__item">
       <ul>
         <li>
-          <NuxtLink :to="'№'" :class="{ active: route.path === '/projects' }"
+          <NuxtLink :to="'/'" :class="{ active: route.path === '/projects' }"
             >Реализованные проекты</NuxtLink
           >
         </li>
