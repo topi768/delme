@@ -1,26 +1,30 @@
 <template>
-  <header>
+  <header class="site-header">
     <div @click="goHome" class="header__item logo">
       <UILogo />
       <h1>zagdom</h1>
     </div>
 
-    <nav class="header__item">
+    <nav class="header__item nav">
       <ul>
         <li>
-          <NuxtLink :to="'/'" :class="{ active: route.path === '/projects' }"
+          <NuxtLink
+            to="/"
+            :class="{ active: route.path.startsWith('/projects') }"
             >Реализованные проекты</NuxtLink
           >
         </li>
         <li>
-          <NuxtLink :to="'/news'" :class="{ active: route.path === '/news' }"
+          <NuxtLink
+            to="/news"
+            :class="{ active: route.path.startsWith('/news') }"
             >Новости</NuxtLink
           >
         </li>
         <li>
           <NuxtLink
-            :to="'/contacts'"
-            :class="{ active: route.path === '/contacts' }"
+            to="/contacts"
+            :class="{ active: route.path.startsWith('/contacts') }"
             >Контакты</NuxtLink
           >
         </li>
@@ -28,16 +32,27 @@
     </nav>
 
     <div class="header__item phone">
-      <a class="phone__link" href="+7 (900) 900-90-90">+7 (900) 900-90-90</a>
-      <UIButtonsMyButton>Оставить заявку</UIButtonsMyButton>
+      <a class="phone__link" href="tel:+79009009090">+7 (900) 900-90-90</a>
+      <UIButtonsMyButton @click="showModal = true">
+        Оставить заявку
+      </UIButtonsMyButton>
     </div>
 
-    <div class="draver"><Draver /></div>
+    <div class="header__item draver">
+      <Draver />
+    </div>
   </header>
+
+  <!-- Модальное окно формы -->
+  <ModalForm v-model="showModal" @submit="onModalSubmit" />
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
+
+import Draver from '@/components/Draver.vue';
+import ModalForm from '@/components/ModalForm.vue';
 
 const router = useRouter();
 const route = useRoute();
@@ -45,87 +60,105 @@ const route = useRoute();
 function goHome() {
   router.push('/');
 }
+
+const showModal = ref(false);
+function onModalSubmit(payload: {
+  name: string;
+  phone: string;
+  message: string;
+}) {
+  console.log('Заявка получена:', payload);
+  // TODO: отправить данные на сервер
+}
 </script>
+
 <style scoped lang="scss">
-nav ul li a {
-  text-decoration: none;
-  margin: 0;
-  padding: 0;
-  margin-right: 20px;
-  transition: all 0.3s ease;
-
-  &.active {
-    color: $color-primary;
-    font-weight: 600;
-  }
-  &:hover {
-    opacity: 0.5;
-  }
-}
-
-.logo {
-  cursor: pointer;
-}
-header {
+.site-header {
   background-color: #eee;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 20px;
+  height: 64px;
+
   .header__item {
     display: flex;
-    flex-wrap: nowrap;
     align-items: center;
+  }
 
-    .phone__link {
-      margin-right: 24px;
-      text-decoration: none;
+  .logo {
+    cursor: pointer;
+    h1 {
+      margin: 0 0 0 8px;
       color: #254741;
-      white-space: nowrap;
+      font-size: 20px;
+    }
+  }
 
-      &::before {
-        content: '';
-        background-image: url('/img/icons/telephone.svg');
-        background-repeat: no-repeat;
-        width: 16px;
-        height: 16px;
-        display: inline-block;
-        margin-right: 4px;
+  .nav {
+    ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin-right: 24px;
+
+        a {
+          text-decoration: none;
+          color: #666666;
+          font-weight: 400;
+          transition: color 0.3s ease;
+
+          &.active {
+            color: #254741;
+            font-weight: 600;
+          }
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
       }
     }
   }
 
-  h1 {
-    margin: 0 0 0 2%;
-    color: #254741;
-  }
-
-  nav ul {
-    display: flex;
-    list-style-type: none;
-    align-items: center;
-
-    li a {
+  .phone {
+    .phone__link {
+      display: inline-flex;
+      align-items: center;
+      margin-right: 16px;
+      color: #254741;
       text-decoration: none;
-      margin: 0;
-      padding: 0;
-      color: #666666;
-      margin-right: 20px;
-    }
-  }
+      font-weight: 500;
+      transition: opacity 0.3s ease;
 
-  @media screen and (max-width: $breakpoint-lg) {
-    .header__item {
-      display: none;
-    }
-    .logo {
-      display: flex;
-      flex-wrap: nowrap;
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 6px;
+        background: url('/img/icons/telephone.svg') no-repeat center/contain;
+      }
+
+      &:hover {
+        opacity: 0.7;
+      }
     }
   }
 
   .draver {
     display: none;
-    @media screen and (max-width: $breakpoint-lg) {
+  }
+
+  @media (max-width: 992px) {
+    .nav,
+    .phone {
+      display: none;
+    }
+    .draver {
       display: block;
     }
   }
