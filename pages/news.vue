@@ -1,6 +1,7 @@
 <template>
   <div class="news">
-    <h4><span>Главная</span> / Новости</h4>
+    <h4 class="route"><span>Главная</span> / Новости</h4>
+
     <h3 ref="scrollAnchor">Новости</h3>
     <div class="news__cards">
       <div class="news__card" v-for="item in newsVisible" :key="item.id">
@@ -54,6 +55,17 @@ async function handleClickPagination(a: number) {
 <style lang="scss">
 span {
   color: $color-primary;
+}
+.route {
+  margin: 40px;
+
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 135%;
+
+  color: grey;
 }
 .news {
   padding: 20px;
