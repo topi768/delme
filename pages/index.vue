@@ -58,6 +58,60 @@
           </div>
         </div>
       </section>
+      <section class="news">
+        <div class="news__header">
+          <h3>Новости</h3>
+          <MyButton @click="handleOpenNews" :is-hollow="true"
+            >Все новости</MyButton
+          >
+        </div>
+        <div class="news__cards">
+          <div class="news__card">
+            <img class="card__img" src="/img/news/n1.png" alt="" />
+            <p class="card__date">15.04.2023</p>
+            <div class="card__text">
+              <h4>Новый дом в стиле барокко</h4>
+              <p>
+                Одноэтажный дом из газобетона габаритными размерами 10.73 х
+                10.73 м. и жилой площадью 101 кв. м. с вальмовой кровлей
+              </p>
+            </div>
+          </div>
+          <div class="news__card">
+            <img class="card__img" src="/img/news/n2.png" alt="" />
+            <p class="card__date">15.04.2023</p>
+            <div class="card__text">
+              <h4>Как сделать строительство дешевле?</h4>
+              <p>
+                Одноэтажный дом из газобетона габаритными размерами 10.73 х
+                10.73 м. и жилой площадью 101 кв. м. с вальмовой кровлей
+              </p>
+            </div>
+          </div>
+          <div class="news__card">
+            <img class="card__img" src="/img/news/n3.png" alt="" />
+            <p class="card__date">15.04.2023</p>
+            <div class="card__text">
+              <h4>Новый дом в стиле барокко</h4>
+              <p>
+                Одноэтажный дом из газобетона габаритными размерами 10.73 х
+                10.73 м. и жилой площадью 101 кв. м. с вальмовой кровлей
+              </p>
+            </div>
+          </div>
+          <div class="news__card">
+            <img class="card__img" src="/img/news/n4.png" alt="" />
+            <p class="card__date">15.04.2023</p>
+            <div class="card__text">
+              <h4>Новый дом в стиле барокко</h4>
+              <p>
+                Одноэтажный дом из газобетона габаритными размерами 10.73 х
+                10.73 м. и жилой площадью 101 кв. м. с вальмовой кровлей
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
 </template>
@@ -65,6 +119,15 @@
 <script setup>
 import { ref } from 'vue';
 import Slider from '~/components/Slider.vue';
+import MyButton from '~/components/UI/Buttons/MyButton.vue';
+
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+function handleOpenNews() {
+  router.push('/news');
+}
 </script>
 
 <style scoped lang="scss">
@@ -154,6 +217,43 @@ import Slider from '~/components/Slider.vue';
     }
     .projects__card:nth-child(1n) {
       margin-right: 20px;
+    }
+  }
+}
+.news {
+  padding: 20px;
+  .news__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  h3 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 120%;
+  }
+
+  .news__cards {
+    display: flex;
+    // flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    @media screen and (max-width: $breakpoint-lg) {
+      overflow-x: scroll;
+      width: 90vw;
+      flex-wrap: nowrap;
+      justify-content: left;
+    }
+    .news__card {
+      display: flex;
+      flex-direction: column;
+      margin: 0 20px;
+      max-width: 300px;
+      p {
+        color: #666666;
+      }
     }
   }
 }

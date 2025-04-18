@@ -1,7 +1,7 @@
 <template>
   <footer>
     <div class="footer__item">
-      <div class="item__logo">
+      <div @click="goHome" class="item__logo">
         <UILogo1 />
         <p>zagdom</p>
       </div>
@@ -67,6 +67,13 @@ const isOpenOiiaCat = ref(false);
 const catPortalTarget = ref('body');
 const volume = ref(0);
 const musicAudio = ref<HTMLAudioElement | null>(null);
+
+const router = useRouter();
+
+function goHome() {
+  router.push('/');
+}
+
 function toggleCat() {
   isOpenOiiaCat.value = !isOpenOiiaCat.value;
 }
@@ -169,6 +176,7 @@ footer {
 
     .item__logo {
       display: flex;
+      cursor: pointer;
       p {
         color: #fff;
         font-size: 1.6rem;

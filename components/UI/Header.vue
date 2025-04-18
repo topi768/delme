@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="header__item logo">
+    <div @click="goHome" class="header__item logo">
       <UILogo />
       <h1>zagdom</h1>
     </div>
@@ -26,8 +26,13 @@
   </header>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const router = useRouter();
 
+function goHome() {
+  router.push('/');
+}
+</script>
 <style scoped lang="scss">
 // $breakpoint-lg: 992px;
 
@@ -36,7 +41,6 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   .header__item {
     display: flex;
     flex-wrap: nowrap;
@@ -86,6 +90,7 @@ header {
     .logo {
       display: flex;
       flex-wrap: nowrap;
+      cursor: pointer !important;
     }
   }
 
