@@ -266,7 +266,6 @@ function handleOpenNews() {
 
 .content {
   flex: 1;
-  // margin: 20px;
 }
 
 .img {

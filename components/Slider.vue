@@ -83,7 +83,7 @@ function goToSlide(index: number) {
 <style scoped lang="scss">
 .sliderWrapper {
   position: relative;
-  width: 100%;
+  width: 90%;
   // max-width: 1200px;
   margin: 0 auto;
   overflow: hidden;

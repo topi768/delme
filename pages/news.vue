@@ -14,11 +14,11 @@
           </p>
         </div>
       </div>
+      <Pagination
+        @click-pagination="handleClickPagination"
+        :maxValue="countPageOnPagination"
+      />
     </div>
-    <Pagination
-      @click-pagination="handleClickPagination"
-      :maxValue="countPageOnPagination"
-    />
   </div>
 </template>
 
@@ -68,7 +68,7 @@ span {
   color: grey;
 }
 .news {
-  padding: 20px;
+  padding: 40px;
   .news__header {
     display: flex;
     justify-content: space-between;
