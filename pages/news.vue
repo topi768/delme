@@ -100,8 +100,8 @@ span {
         color: #666666;
       }
     }
-    .news__cards:hover {
-      transform: translateY(20px);
+    .news__card:hover {
+      transform: translateY(-20px);
     }
   }
 }
