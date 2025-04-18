@@ -8,9 +8,9 @@
 
   <div class="draver" :class="{ open: drawerOpen }">
     <nav>
-      <a>Реализованные проекты</a>
-      <a>Новости</a>
-      <a>Контакты</a>
+      <NuxtLink :to="'/'">Реализованные проекты</NuxtLink>
+      <NuxtLink :to="'/news'">Новости</NuxtLink>
+      <NuxtLink :to="'/contacts'">Контакты</NuxtLink>
     </nav>
 
     <div class="draver__contacts">
@@ -23,6 +23,10 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
+
+const router = useRouter();
+const route = useRoute();
 
 const drawerOpen = ref<boolean>(false);
 
