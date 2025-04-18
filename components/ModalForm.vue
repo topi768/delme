@@ -60,6 +60,9 @@ watch(
 </script>
 
 <style scoped lang="scss">
+h2 {
+  color: black;
+}
 form {
   display: flex;
   flex-direction: column;
@@ -108,6 +111,10 @@ form {
   border: none;
   font-size: 18px;
   cursor: pointer;
+  background: #029f5933;
+  color: $color-primary;
+  padding: 10px;
+  font-weight: 600;
 }
 
 .modal-fade-enter-from,

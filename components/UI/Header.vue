@@ -43,7 +43,6 @@
     </div>
   </header>
 
-  <!-- Модальное окно формы -->
   <ModalForm v-model="showModal" @submit="onModalSubmit" />
 </template>
 

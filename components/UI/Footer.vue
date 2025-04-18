@@ -24,7 +24,9 @@
       </p>
     </div>
     <div class="footer__item footer__button">
-      <UIButtonsMyButton>Оставить заявку</UIButtonsMyButton>
+      <UIButtonsMyButton @click="showModal = true"
+        >Оставить заявку</UIButtonsMyButton
+      >
     </div>
 
     <div class="footer__mobileMinorLinks">
@@ -32,6 +34,7 @@
       <p>Политика конфиденциальности</p>
       <p @click="toggleCat">Пользовательское соглашение</p>
     </div>
+    <ModalForm v-model="showModal" @submit="onModalSubmit" />
   </footer>
 
   <teleport :to="catPortalTarget">
@@ -62,6 +65,7 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue';
+const showModal = ref(false);
 
 const isOpenOiiaCat = ref(false);
 const catPortalTarget = ref('body');
@@ -69,7 +73,13 @@ const volume = ref(0);
 const musicAudio = ref<HTMLAudioElement | null>(null);
 
 const router = useRouter();
-
+function onModalSubmit(payload: {
+  name: string;
+  phone: string;
+  message: string;
+}) {
+  console.log('Заявка получена:', payload);
+}
 function goHome() {
   router.push('/');
 }
