@@ -8,34 +8,64 @@
     <nav class="header__item">
       <ul>
         <li>
-          <NuxtLink to="#">Реализованные проекты</NuxtLink>
+          <NuxtLink :to="'№'" :class="{ active: route.path === '/projects' }"
+            >Реализованные проекты</NuxtLink
+          >
         </li>
         <li>
-          <NuxtLink to="#">Новости</NuxtLink>
+          <NuxtLink :to="'/news'" :class="{ active: route.path === '/news' }"
+            >Новости</NuxtLink
+          >
         </li>
         <li>
-          <NuxtLink to="#">Контакты</NuxtLink>
+          <NuxtLink
+            :to="'/contacts'"
+            :class="{ active: route.path === '/contacts' }"
+            >Контакты</NuxtLink
+          >
         </li>
       </ul>
     </nav>
+
     <div class="header__item phone">
       <a class="phone__link" href="+7 (900) 900-90-90">+7 (900) 900-90-90</a>
       <UIButtonsMyButton>Оставить заявку</UIButtonsMyButton>
     </div>
+
     <div class="draver"><Draver /></div>
   </header>
 </template>
 
 <script setup lang="ts">
+import { useRouter, useRoute } from 'vue-router';
+
 const router = useRouter();
+const route = useRoute();
 
 function goHome() {
   router.push('/');
 }
 </script>
 <style scoped lang="scss">
-// $breakpoint-lg: 992px;
+nav ul li a {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  margin-right: 20px;
+  transition: all 0.3s ease;
 
+  &.active {
+    color: $color-primary;
+    font-weight: 600;
+  }
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.logo {
+  cursor: pointer;
+}
 header {
   background-color: #eee;
   display: flex;
@@ -90,7 +120,6 @@ header {
     .logo {
       display: flex;
       flex-wrap: nowrap;
-      cursor: pointer !important;
     }
   }
 
