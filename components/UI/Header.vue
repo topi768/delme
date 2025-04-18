@@ -68,19 +68,17 @@ function onModalSubmit(payload: {
   message: string;
 }) {
   console.log('Заявка получена:', payload);
-  // TODO: отправить данные на сервер
 }
 </script>
 
 <style scoped lang="scss">
 .site-header {
-  background-color: #eee;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
   height: 64px;
-
+  margin: 20px;
   .header__item {
     display: flex;
     align-items: center;
@@ -112,7 +110,7 @@ function onModalSubmit(payload: {
           transition: color 0.3s ease;
 
           &.active {
-            color: #254741;
+            color: $color-primary;
             font-weight: 600;
           }
 
