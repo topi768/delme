@@ -10,6 +10,10 @@
           <textarea placeholder="Сообщение" v-model="message" rows="4" />
           <button type="submit">Отправить</button>
         </form>
+        <p>
+          Нажимая на кнопку «Отправить», вы принимаете
+          <span>пользовательское соглашение и политику конфиденциальности</span>
+        </p>
       </div>
     </div>
   </transition>
@@ -82,6 +86,17 @@ form {
     }
   }
 }
+p {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  text-align: center;
+
+  color: #757e8d;
+}
+
 .modal-overlay {
   position: fixed;
   inset: 0;
