@@ -14,9 +14,9 @@
     </nav>
 
     <div class="draver__contacts">
-      <a href="+7 (900) 900-90-90">+7 (900) 900-90-90</a>
-      <a>Info@gmail.com</a>
-      <a>г Владивосток ул. Выселковая 49, стр. 3</a>
+      <a :href="`tel:${contacts.phone}`">{{ contacts.phone }}</a>
+      <a>{{ contacts.email }}</a>
+      <a>{{ contacts.address }}</a>
     </div>
   </div>
 </template>
@@ -24,7 +24,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
-
+import { contacts } from '~/data/contacts';
 const router = useRouter();
 const route = useRoute();
 
