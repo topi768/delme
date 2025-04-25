@@ -5,11 +5,7 @@
     <div class="contacts__inner">
       <div class="contacts__text">
         <h2>Контакты</h2>
-        <div class="contacts__links">
-          <a href="+7 (900) 900-90-90">+7 (900) 900-90-90</a>
-          <a>Info@gmail.com</a>
-          <a>г. Владивосток ул. Выселковая 49, стр. 3</a>
-        </div>
+        <UIContactsList />
       </div>
       <div class="contacts__position">
         <iframe
@@ -70,37 +66,6 @@ a {
         font-size: 46px;
         line-height: 120%;
         margin: 0;
-      }
-      .contacts__links {
-        display: flex;
-        flex-direction: column;
-        a {
-          margin: 12px 0;
-        }
-        a:nth-child(1)::before {
-          content: '';
-          background-image: url('/img/icons/telephone.svg');
-          width: 16px;
-          height: 16px;
-          display: inline-block;
-          margin-right: 10px;
-        }
-        a:nth-child(2)::before {
-          content: '';
-          background-image: url('/img/icons/email.svg');
-          width: 16px;
-          height: 16px;
-          display: inline-block;
-          margin-right: 10px;
-        }
-        a:nth-child(3)::before {
-          content: '';
-          background-image: url('/img/icons/location.svg');
-          width: 16px;
-          height: 16px;
-          display: inline-block;
-          margin-right: 10px;
-        }
       }
     }
   }
