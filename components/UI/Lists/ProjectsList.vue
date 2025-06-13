@@ -34,9 +34,10 @@
 
     .projects__cards {
         display: flex;
+        justify-content: space-between;
 
         @media screen and (max-width: $breakpoint-xl) {
-            overflow-x: scroll;
+            overflow-x: auto;
             width: 90vw;
         }
 

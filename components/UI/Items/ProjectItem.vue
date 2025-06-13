@@ -1,10 +1,12 @@
 <template>
-    <div class="projects__card">
+    <div class="project__card">
+        <img class="card__img--mobile" :src="imgSrc" />
+
         <div class="card__text">
             <h4>{{ title }}</h4>
             <div class="card__paragraphs" v-html="formattedText"></div>
         </div>
-        <img :src="imgSrc" />
+        <img class="card__img" :src="imgSrc" />
     </div>
 </template>
 
@@ -33,36 +35,59 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.projects__cards {
+.project__card {
     display: flex;
+    align-items: center;
+    border-radius: 20px;
+    background: #fff;
+    margin: 0 20px;
+    min-width: 300px;
+
+    .card__text {
+        margin: 0 20px;
+    }
+
+    .card__img {
+        max-width: 300px;
+        max-height: 300px;
+    }
+
+    .card__paragraphs p {
+        margin-bottom: 0.5rem;
+
+    }
+
+
+
+    .card__img--mobile {
+        display: none;
+    }
 
     @media screen and (max-width: $breakpoint-xl) {
-        overflow-x: scroll;
-        width: 90vw;
-    }
+        // overflow-x: scroll;
+        // width: 90vw;
+        // justify-content: space-between;
+        flex-direction: column;
+        width: 40%;
 
-    .projects__card {
-        display: flex;
-        align-items: center;
-        border-radius: 20px;
-        background: #fff;
-
-        .card__text {
-            margin: 0 20px;
+        .card__img {
+            display: none;
         }
 
-        img {
-            max-width: 300px;
-            max-height: 300px;
-        }
 
-        .card__paragraphs p {
-            margin-bottom: 0.5rem;
+
+        .card__img--mobile {
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            width: 100%;
+            display: block;
+            height: 40%;
+            object-fit: cover;
+
         }
     }
 
-    .projects__card+.projects__card {
-        margin-left: 20px;
-    }
+
+
 }
 </style>
