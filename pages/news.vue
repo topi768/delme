@@ -8,8 +8,9 @@
         :imgSrc="item.img" :excerpt="item.text" />
 
 
-      <Pagination @click-pagination="handleClickPagination" :maxValue="countPageOnPagination" />
     </div>
+    <Pagination @click-pagination="handleClickPagination" :maxValue="countPageOnPagination" />
+
   </div>
 </template>
 

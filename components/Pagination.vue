@@ -1,47 +1,30 @@
 <template>
-  <div class="Pagination">
-    <UIButtonsMyButton
-      :isDisabled="cur_index <= 1"
-      @click="handleDecrement"
-      style="margin-right: 20px"
-    >
-      &#60;
-    </UIButtonsMyButton>
+  <div class="pagination__container">
+    <div class="Pagination">
+      <UIButtonsMyButton :isDisabled="cur_index <= 1" @click="handleDecrement" style="margin-right: 20px">
+        &#60;
+      </UIButtonsMyButton>
 
-    <UIButtonsMyButton
-      v-if="cur_index - 1 > 0"
-      @click="emitPage(cur_index - 1)"
-      style="margin: 0 5px"
-      :isHollow="true"
-    >
-      {{ cur_index - 1 }}
-    </UIButtonsMyButton>
+      <UIButtonsMyButton v-if="cur_index - 1 > 0" @click="emitPage(cur_index - 1)" style="margin: 0 5px"
+        :isHollow="true">
+        {{ cur_index - 1 }}
+      </UIButtonsMyButton>
 
-    <UIButtonsMyButton
-      @click="emitPage(cur_index)"
-      style="margin: 0 5px"
-      :isHollow="false"
-    >
-      {{ cur_index }}
-    </UIButtonsMyButton>
+      <UIButtonsMyButton @click="emitPage(cur_index)" style="margin: 0 5px" :isHollow="false">
+        {{ cur_index }}
+      </UIButtonsMyButton>
 
-    <UIButtonsMyButton
-      v-if="cur_index + 1 <= maxValue"
-      @click="emitPage(cur_index + 1)"
-      style="margin: 0 5px"
-      :isHollow="true"
-    >
-      {{ cur_index + 1 }}
-    </UIButtonsMyButton>
+      <UIButtonsMyButton v-if="cur_index + 1 <= maxValue" @click="emitPage(cur_index + 1)" style="margin: 0 5px"
+        :isHollow="true">
+        {{ cur_index + 1 }}
+      </UIButtonsMyButton>
 
-    <UIButtonsMyButton
-      :isDisabled="cur_index >= maxValue"
-      @click="handleIncrement"
-      style="margin-left: 20px"
-    >
-      &#62;
-    </UIButtonsMyButton>
+      <UIButtonsMyButton :isDisabled="cur_index >= maxValue" @click="handleIncrement" style="margin-left: 20px">
+        &#62;
+      </UIButtonsMyButton>
+    </div>
   </div>
+
 </template>
 
 <script setup lang="ts">
@@ -77,4 +60,11 @@ function emitPage(index: number) {
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.pagination__container {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+</style>
