@@ -17,15 +17,38 @@
               </DialogDescription>
 
               <form @submit.prevent="onSubmit">
-                <input placeholder="Имя" v-model="name" required class="modal-input" />
-                <input type="tel" placeholder="Телефон" v-model="phone" required class="modal-input" />
-                <textarea placeholder="Сообщение" v-model="message" rows="4" class="modal-input" />
-                <button type="submit" class="modal-input button">Отправить заявку</button>
+                <input
+                  placeholder="Имя"
+                  v-model="name"
+                  required
+                  class="modal-input"
+                />
+                <input
+                  v-maska
+                  data-maska="+7-###-###-##-##"
+                  type="tel"
+                  placeholder="Телефон"
+                  v-model="phone"
+                  required
+                  class="modal-input"
+                />
+                <textarea
+                  placeholder="Сообщение"
+                  v-model="message"
+                  rows="4"
+                  class="modal-input"
+                />
+                <button type="submit" class="modal-input button">
+                  Отправить заявку
+                </button>
               </form>
 
               <p class="consent-text">
                 Нажимая на кнопку «Отправить», вы принимаете
-                <span> пользовательское соглашение и политику конфиденциальности</span>
+                <span>
+                  пользовательское соглашение и политику
+                  конфиденциальности</span
+                >
               </p>
             </DialogContent>
           </div>
@@ -46,6 +69,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from 'reka-ui';
+import { vMaska } from 'maska/vue';
 
 const props = defineProps<{
   modelValue: boolean;
@@ -53,7 +77,10 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   (e: 'update:modelValue', value: boolean): void;
-  (e: 'submit', payload: { name: string; phone: string; message: string }): void;
+  (
+    e: 'submit',
+    payload: { name: string; phone: string; message: string }
+  ): void;
 }>();
 
 const name = ref('');
@@ -81,7 +108,10 @@ function lockBodyScroll() {
     }
   });
 
-  observer.observe(document.body, { attributes: true, attributeFilter: ['style'] });
+  observer.observe(document.body, {
+    attributes: true,
+    attributeFilter: ['style'],
+  });
 }
 
 function unlockBodyScroll() {
@@ -113,7 +143,7 @@ function onSubmit() {
 
 watch(
   () => props.modelValue,
-  (visible) => {
+  visible => {
     if (visible) {
       lockBodyScroll();
     } else {
