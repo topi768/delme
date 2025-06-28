@@ -10,7 +10,7 @@
 
     <div class="footer__item">
       <nav>
-        <RouterLink to="/projects">Реализованные проекты</RouterLink>
+        <RouterLink to="/">Реализованные проекты</RouterLink>
         <RouterLink to="/news">Новости</RouterLink>
         <RouterLink to="/contacts">Контакты</RouterLink>
       </nav>
@@ -20,7 +20,9 @@
     <UIContactsList class="footer__item footer__contacts" />
 
     <div class="footer__item footer__button">
-      <UIButtonsMyButton @click="showModal = true">Оставить заявку</UIButtonsMyButton>
+      <UIButtonsMyButton @click="showModal = true"
+        >Оставить заявку</UIButtonsMyButton
+      >
     </div>
 
     <div class="footer__mobileMinorLinks">
@@ -59,9 +61,9 @@ footer {
   display: grid;
   grid-template-columns: auto auto auto auto;
   grid-template-areas:
-    "logo nav contacts button"
-    "minorLinks minorLinks minorLinks minorLinks"
-    "mobileMinorLinks mobileMinorLinks mobileMinorLinks mobileMinorLinks";
+    'logo nav contacts button'
+    'minorLinks minorLinks minorLinks minorLinks'
+    'mobileMinorLinks mobileMinorLinks mobileMinorLinks mobileMinorLinks';
   gap: 20px;
   background-color: #254741;
   color: #fff;
@@ -198,11 +200,11 @@ footer {
   @media screen and (max-width: $breakpoint-md) {
     grid-template-columns: 1fr;
     grid-template-areas:
-      "logo"
-      "nav"
-      "contacts"
-      "button"
-      "mobileMinorLinks";
+      'logo'
+      'nav'
+      'contacts'
+      'button'
+      'mobileMinorLinks';
 
     .item__minorLinks {
       display: none;

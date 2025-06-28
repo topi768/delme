@@ -21,7 +21,7 @@ const names = [
   'Trulimero_Trulicina.',
 ];
 
-export const newsData: News = Array.from({ length: 64 }, (_, index) => {
+export const newsData: News = Array.from({ length: 111 }, (_, index) => {
   const nameIndex = index % 12;
   const cycle = Math.floor(index / 12);
   const id = cycle > 0 ? `${names[nameIndex]}_${cycle}` : names[nameIndex];
