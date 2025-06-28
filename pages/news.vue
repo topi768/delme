@@ -47,7 +47,7 @@ watch(indexPage, async () => {
 });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 span {
   color: $color-primary;
 }
