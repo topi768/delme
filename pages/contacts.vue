@@ -1,6 +1,5 @@
 <template>
-  <h4><span>Главная</span> / Контакты</h4>
-
+  <UIBreadcrumb />
   <div class="contacts">
     <div class="contacts__inner">
       <div class="contacts__text">
@@ -15,7 +14,9 @@
 </template>
 
 <script lang="ts">
+import { UIBreadcrumb } from '#components';
 import { ref } from 'vue';
+definePageMeta({ breadcrumb: 'Контакты' });
 </script>
 
 <style lang="scss" scoped>

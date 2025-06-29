@@ -1,6 +1,6 @@
 <template>
   <div class="news">
-    <h4 class="route"><span>Главная</span> / Новости</h4>
+    <UIBreadcrumb />
 
     <h3 ref="scrollAnchor">Новости</h3>
     <div class="news__cards">
@@ -22,6 +22,8 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({ breadcrumb: 'Новости' });
+
 import { ref, computed, watch, nextTick } from 'vue';
 import { newsData } from '@/data/news';
 
