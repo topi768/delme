@@ -1,4 +1,7 @@
 <template>
+  <img class="map" src="/public/img/map.png" alt="" />
+</template>
+<!-- <template>
   <client-only>
     <div id="ymap" style="width: 100%; height: 450px"></div>
   </client-only>
@@ -36,4 +39,11 @@ onMounted(() => {
   script.onload = initYandexMap;
   document.head.appendChild(script);
 });
-</script>
+</script> -->
+<style scoped lang="scss">
+.map {
+  max-width: 544px;
+  // height: auto;
+  object-fit: cover;
+}
+</style>

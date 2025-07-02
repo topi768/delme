@@ -6,14 +6,12 @@
         <h2>Контакты</h2>
         <UIContactsList />
       </div>
-      <div class="contacts__position">
-        <Map></Map>
-      </div>
+      <Map></Map>
     </div>
   </div>
 </template>
 
-<script lang="ts">
+<script scoped lang="ts">
 import { UIBreadcrumb } from '#components';
 import { ref } from 'vue';
 definePageMeta({ breadcrumb: 'Контакты' });
@@ -43,13 +41,15 @@ a {
   justify-content: center;
   height: 100%;
   .contacts__inner {
+    padding: 0 30px 30px 30px;
     display: flex;
+    justify-content: space-between;
     @media screen and (max-width: $breakpoint-lg) {
       flex-direction: column;
-      iframe {
-        height: 600px;
-        width: 100%;
-      }
+      // iframe {
+      //   height: 600px;
+      //   width: 100%;
+      // }
     }
     .contacts__text {
       padding: 0 60px;
